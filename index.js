@@ -25,25 +25,27 @@ function getWeather(lat, lng) {
 
 function displayResults(responseJson) {
     console.log(responseJson);
+    $('.error-message').empty();
     $('.results-list').empty();
     $('.clothing').empty();
     $('.results-list').append(`<li><h2>Temperature</h2>
     <p class="temp">${responseJson.temp.value}</p>
     <h3>Precipitation</h3>  <p>${responseJson.precipitation.value}</p></li>`);
+    clothingSuggestion(responseJson.temp.value);
     $('.results').removeClass('hidden');
-    clothingSuggestion();
+
 }
 
-function clothingSuggestion() {
-    if ($('.temp') > 80) {
+function clothingSuggestion(temp) {
+    if (temp > 80) {
         $('.clothing').append("t shirt weather!")
-    } else if ($('.temp') >= 60) {
+    } else if (temp >= 60) {
         $('.clothing').append("no jacket needed")
-    } else if ($('.temp') >= 50) {
+    } else if (temp >= 50) {
         $('.clothing').append("you might want a light jacket")
-    } else if ($('.temp') >= 40) {
+    } else if (temp >= 40) {
         $('.clothing').append("a coat might be a good idea")
-    } else if ($('.temp') >= 20) {
+    } else if (temp >= 20) {
         $('.clothing').append("coat and scarf!")
     } else {
         $('.clothing').append("you might want to stay indoors!")
