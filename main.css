@@ -2,9 +2,38 @@
     box-sizing: border-box;
 }
 
+html {
+    background: url("blue-sky-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    background-blend-mode: lighten;
+}
+
+form {
+    text-align: center;
+}
+
+.results {
+    text-align: center;
+}
+
+.clothing {
+    text-align: center;
+}
+
 button,
 input[type="text"] {
     padding: 5px;
+}
+
+button,
+input[type="submit"] {
+    margin-top: 15px;
+}
+
+#js-lng {
+    margin-top: 10px;
 }
 
 button:hover {
@@ -21,4 +50,8 @@ button:hover {
 
 .results-list {
     list-style: none;
+}
+
+.clothing {
+    font-weight: bold;
 }
