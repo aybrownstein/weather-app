@@ -1,6 +1,7 @@
 # weather-app
 
 My Weather App is an app using the Climacell API to give the user the current temperature base on the user's coordinates: 
+https://aybrownstein.github.io/weather-app/
 
 ![image](https://user-images.githubusercontent.com/62718318/87786571-225c7680-c808-11ea-9dfc-9d4dfc169f4f.png)
 
