@@ -1,10 +1,10 @@
 # weather-app
 
-My Weather App is an app using the Climacell API to give the user the current temperature base on the user's coordinates: 
+My Weather App is an app using the Weather API to give the user the current temperature base on the user's coordinates: 
 https://aybrownstein.github.io/weather-app/
 
-![screenshot](https://user-images.githubusercontent.com/62718318/87875542-e0663880-c99f-11ea-9776-5e6406c006ba.PNG)
+![screenshot](https://user-images.githubusercontent.com/62718318/88313849-17ab5100-cce2-11ea-8b1f-ba8b0ccd92c3.PNG)
 
-The way to use the app is to enter the coordinates of the location and the app gives the user the demperature, precipitation level, and a clothing suggestion.
+The way to use the app is to enter the desired location using zipcode, city, or coordinates, and the app gives the user the temperature, weather conditions, and a clothing suggestion.
 
 This app was created using HTML, CSS, JS/JQuery
