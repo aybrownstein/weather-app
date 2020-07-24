@@ -18,6 +18,8 @@ form {
 }
 
 .clothing {
+    font-family: 'Rowdies', cursive;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -50,8 +52,4 @@ button:hover {
 
 .results-list {
     list-style: none;
-}
-
-.clothing {
-    font-weight: bold;
 }

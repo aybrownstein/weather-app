@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <form>
         <h1>WEATHER APP</h1>
-        <h2>Please state your coordinates</h2><br>
-        <label for="js-lat"></label>
-        <input type="text" name="lat" id="js-lat" placeholder="lat" required>
-        <label for="js-lng"></label>
-        <input type="text" name="lng" id="js-lng" placeholder="lng" required><br>
+        <h2>To find out the weather of a location please enter zipcode, city name or coordinates</h2><br>
+        <label for="js-location"></label>
+        <input type="text" name="location" id="js-location" placeholder="zip, city, or lat,long" required><br>
         <input type="submit" value="Get Weather">
     </form>
     <p class="error-message"></p>
     <section class="results hidden">
         <ul class="results-list"></ul>
+
+        <div class="clothing hidden">
+            <p></p>
+        </div>
     </section>
-    <section class="clothing hidden"></section>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>

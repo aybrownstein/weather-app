@@ -1,16 +1,38 @@
 'use strict';
 
-const apiKey = 'QChdX726JRzWf9mcRzxjQZ4qmf3PioBS';
+const apiKey = 'ae0e9addd55b4e58a7d142653202207';
+const searchUrl = 'https://api.weatherapi.com/v1/current.json?'
+
+function formatQueryParams(params) {
+    const queryItems = Object.keys(params)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    return queryItems.join('&');
+}
+
+function displayResults(responseJson) {
+    console.log(responseJson);
+    $('.error-message').empty();
+    $('.results-list').empty();
+    $('.clothing').empty();
+    $('.results-list').append(`<li><h2>Temperature</h2>
+    <p class="temp">${responseJson.current.temp_f}</p>
+    <h2>Weather Conditions</h2>  <p>${responseJson.current.condition.text}</p></li>`);
+    clothingSuggestion(responseJson.current.temp_f);
+    $('.results').removeClass('hidden');
+
+}
 
 
-function getWeather(lat, lng) {
-    let url = `https://api.climacell.co/v3/weather/realtime?lat=${lat}&lon=${lng}&unit_system=us&fields=temp%2Cprecipitation`
-    let options = {
-        headers: new Headers({
-            'apikey': apiKey
-        })
+function getWeather(query) {
+
+    let params = {
+        key: apiKey,
+        q: query
     };
-    fetch(url, options)
+    const queryString = formatQueryParams(params)
+    const url = searchUrl + queryString;
+
+    fetch(url)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -23,29 +45,17 @@ function getWeather(lat, lng) {
         });
 }
 
-function displayResults(responseJson) {
-    console.log(responseJson);
-    $('.error-message').empty();
-    $('.results-list').empty();
-    $('.clothing').empty();
-    $('.results-list').append(`<li><h2>Temperature</h2>
-    <p class="temp">${responseJson.temp.value}</p>
-    <h3>Precipitation</h3>  <p>${responseJson.precipitation.value}</p></li>`);
-    clothingSuggestion(responseJson.temp.value);
-    $('.results').removeClass('hidden');
 
-}
-
-function clothingSuggestion(temp) {
-    if (temp > 80) {
+function clothingSuggestion(temp_f) {
+    if (temp_f > 80) {
         $('.clothing').append("t shirt weather!")
-    } else if (temp >= 60) {
+    } else if (temp_f >= 60) {
         $('.clothing').append("no jacket needed")
-    } else if (temp >= 50) {
+    } else if (temp_f >= 50) {
         $('.clothing').append("you might want a light jacket")
-    } else if (temp >= 40) {
+    } else if (temp_f >= 40) {
         $('.clothing').append("a coat might be a good idea")
-    } else if (temp >= 20) {
+    } else if (temp_f >= 20) {
         $('.clothing').append("coat and scarf!")
     } else {
         $('.clothing').append("you might want to stay indoors!")
@@ -56,9 +66,8 @@ function clothingSuggestion(temp) {
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        const lat = $('#js-lat').val();
-        const lng = $('#js-lng').val();
-        getWeather(lat, lng);
+        const location = $('#js-location').val();
+        getWeather(location);
     });
 }
 
