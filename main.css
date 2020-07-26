@@ -62,4 +62,7 @@ button:hover {
     h2 {
         font-size: x-large;
     }
+    .results {
+        font-weight: bolder;
+    }
 }
